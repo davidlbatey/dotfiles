@@ -1,0 +1,38 @@
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# the HISTFILESIZE environment variable sets the maximum number of lines that will ever be saved to your bash_history file
+# it defaults to 1000 lines – far too few!
+# We unset it, so that there is no limit on the number of lines saved to disk in ~/.bash_history
+unset HISTFILESIZE
+
+# HISTSIZE sets the maximum number of lines loaded from the history file into memory on shell startup.
+# We set this to 20k to save memory – Bash doesn’t use memory very well, and a huge history file can really bloats every Bash shell process
+# this limits the number of lines returned by the ‘history’ command, but you can always grep/cat the ~/.bash_history file directly
+# in any case it’s unlikely you’ll exceed 20k lines ever – this is more a safety precaution.
+export HISTSIZE=20000
+
+# Setting the time format will cause every history line to be timestamped.  This is useful when reviewing old commands
+# So situations like “I know I had this problem in April..” can be answered more easily
+# Setting this causes ~/.bash_history timestamping to be turned on; however the time format used in the history file is fixed (to seconds-since-epoch)
+# The time format setting applies to the output of the ‘history’ command
+# The format below is e.g. “25/06/11-01:45:10”;  alter to suit your tastes.  To see available format strings:  man 3 strftime
+export HISTTIMEFORMAT='%d/%m/%y-%H:%M:%S '
+
+# Sets the ‘histappend’ shell option (shopt)
+# This changes the default history behaviour from overwrite to append
+# This prevents multiple simultaneous shells from overwriting others history
+shopt -s histappend
+
+# The command ‘history –a’ causes all new history lines to be immediately appended to the ~/.bash_history file.
+# PROMPT_COMMAND is a bash variable defining a command to be executed immediately before a new prompt is displayed
+# meaning it’s executed after any command is run, and before the prompt is displayed ready for the new command.
+# Therefore the following causes the history to be appended to the history file after every command, and not just on shell exit/logout.
+# So this gives us constantly appended history, meaning we never lose history lines if the shell dies.
+# So we don’t lose history if we lose network connection, or if the system reboots, or if the shell crashes, or for any other reason.
+export PROMPT_COMMAND='history -a'
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

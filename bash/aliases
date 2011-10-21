@@ -1,0 +1,30 @@
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -al'
+alias la='ls -a'
+alias pg='ps aux | grep'
+alias psa='ps aux '
+
+alias gs='git status'
+alias gl='git log '
+alias ga='git add '
+alias gd='git diff --ignore-space-change '
+alias gpl='git pull --rebase'
+alias gpo='git push origin '
+alias gb='git branch '
+alias gf='git fetch '
+alias gco='git checkout '
+alias gc='git commit -a -m '
+alias gcol='git-cola'
+alias be='bundle exec '
+alias bi='bundle install '
+alias bu='bundle update '
+alias bil='bundle install --local'
+alias glp='git log -p'

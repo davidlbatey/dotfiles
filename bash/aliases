@@ -6,12 +6,15 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+#System
 alias ll='ls -al'
 alias la='ls -a'
 alias pg='ps aux | grep'
 alias psa='ps aux '
+alias tc='top -o cpu'
+alias tm='top -o vsize'
 
+#GIT
 alias gs='git status'
 alias gl='git log '
 alias ga='git add '
@@ -28,3 +31,8 @@ alias bi='bundle install '
 alias bu='bundle update '
 alias bil='bundle install --local'
 alias glp='git log -p'
+
+#Rails 3
+alias rc='rails console'
+alias rs='rails server'
+alias rdb='rails db'

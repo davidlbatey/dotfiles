@@ -1,0 +1,4 @@
+Host dycept
+HostName dycept.com
+
+ServerAliveInterval 120

@@ -39,4 +39,4 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 [[ -s "/Users/david/.rvm/scripts/rvm" ]] && source "/Users/david/.rvm/scripts/rvm"
 
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/dotfiles/bin:$PATH

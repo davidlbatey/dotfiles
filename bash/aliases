@@ -6,7 +6,12 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-#System
+# MAC Specific
+if [[ $OSTYPE =~ 'darwin' ]]; then
+  alias ls='ls -G'
+fi
+
+# System
 alias ll='ls -al'
 alias la='ls -a'
 alias pg='ps aux | grep'
@@ -14,7 +19,7 @@ alias psa='ps aux '
 alias tc='top -o cpu'
 alias tm='top -o vsize'
 
-#GIT
+# GIT
 alias gs='git status'
 alias gl='git log '
 alias ga='git add '
@@ -32,7 +37,7 @@ alias bu='bundle update '
 alias bil='bundle install --local'
 alias glp='git log -p'
 
-#Rails 3
+# Rails 3
 alias rc='rails console'
 alias rs='rails server'
 alias rdb='rails db'

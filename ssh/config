@@ -1,4 +1,9 @@
 Host dycept
 HostName dycept.com
 
-ServerAliveInterval 120
+Host *
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+  Compression yes
+  GatewayPorts yes
+  StrictHostKeyChecking no

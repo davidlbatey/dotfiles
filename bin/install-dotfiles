@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby -w
+# Author: David Batey
+# Date:   23/10/2011
+# Installs the dotfiles to the current user
+
+module DotfilesInstaller
+
+  require 'fileutils'
+  extend self
+
+  def run(args)
+    install_dotfiles(args)
+  end
+
+  private
+
+  def install_dotfiles(args)
+    puts "-- Installing your dotfiles --"
+    install_bash_files
+    install_ssh_files
+    source_current_shell
+    puts "-- Dotfiles installed. Woohoo --"
+  end
+
+  # bashrc is just sourced so system specific config can occur at ~/.bashrc
+  # bash_profile sources the bashrc
+  def install_bash_files
+    file = File.open("#{ENV['HOME']}/.bashrc","a")
+    file.write("\n. ~/dotfiles/bashrc")
+    file.close
+
+    FileUtils.symlink("#{ENV['HOME']}/bash_profile", "#{ENV['HOME']}/.bash_profile", {:force => true})
+
+    puts "** Bash files installed"
+  end
+
+  def install_ssh_files
+    FileUtils.symlink("#{ENV['HOME']}/dotfiles/ssh/config", "#{ENV['HOME']}/.ssh/config", {:force => true})
+    FileUtils.symlink("#{ENV['HOME']}/dotfiles/ssh/id_rsa.pub", "#{ENV['HOME']}/.ssh/id_rsa.pub", {:force => true})
+    FileUtils.symlink("#{ENV['HOME']}/dotfiles/ssh/authorized_keys", "#{ENV['HOME']}/.ssh/authorized_keys", {:force => true})
+    puts "** SSH files installed"
+  end
+
+  def source_current_shell
+    %x[source ~/.bashrc]
+  end
+
+end
+
+DotfilesInstaller.run(ARGV)

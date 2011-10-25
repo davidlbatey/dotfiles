@@ -70,7 +70,6 @@ module KeyInstaller
     args.slice!(0 - size, size)
   end
 
-
 end
 
 KeyInstaller.run(ARGV)

@@ -1,5 +1,6 @@
 Host dycept
-HostName dycept.com
+  HostName dycept.com
+  DynamicForward *:1080
 
 Host *
   ServerAliveInterval 60

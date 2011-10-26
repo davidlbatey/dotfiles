@@ -26,7 +26,7 @@ module DotfilesInstaller
   # bash_profile sources the ~/.bashrc
   def install_bash_files
     File.open("#{ENV['HOME']}/.bashrc", 'a') { |f| f.write("\n. ~/dotfiles/bashrc") }
-    FileUtils.symlink("#{ENV['HOME']}/bash_profile", "#{ENV['HOME']}/.bash_profile", {:force => true})
+    FileUtils.symlink("#{ENV['HOME']}/dotfiles/bash_profile", "#{ENV['HOME']}/.bash_profile", {:force => true})
 
     $stdout.puts "** Bash files installed"
   end

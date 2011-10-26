@@ -8,13 +8,13 @@ module DotfilesInstaller
   require 'fileutils'
   extend self
 
-  def run(args)
-    install_dotfiles(args)
+  def run
+    install_dotfiles
   end
 
   private
 
-  def install_dotfiles(args)
+  def install_dotfiles
     $stdout.puts "-- Installing your dotfiles --"
     install_bash_files
     install_ssh_files
@@ -22,13 +22,10 @@ module DotfilesInstaller
     $stdout.puts "-- Dotfiles installed. Woohoo --"
   end
 
-  # bashrc is just sourced so system specific config can occur at ~/.bashrc
-  # bash_profile sources the bashrc
+  # dotfiles bashrc is just sourced so system specific config can occur at ~/.bashrc
+  # bash_profile sources the ~/.bashrc
   def install_bash_files
-    file = File.open("#{ENV['HOME']}/.bashrc","a")
-    file.write("\n. ~/dotfiles/bashrc")
-    file.close
-
+    File.open("#{ENV['HOME']}/.bashrc", 'a') { |f| f.write("\n. ~/dotfiles/bashrc") }
     FileUtils.symlink("#{ENV['HOME']}/bash_profile", "#{ENV['HOME']}/.bash_profile", {:force => true})
 
     $stdout.puts "** Bash files installed"
@@ -48,4 +45,4 @@ module DotfilesInstaller
 
 end
 
-DotfilesInstaller.run(ARGV)
+DotfilesInstaller.run

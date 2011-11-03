@@ -9,6 +9,7 @@ fi
 # MAC Specific
 if [[ $OSTYPE =~ 'darwin' ]]; then
   alias ls='ls -G'
+  alias wget='curl -O'
 fi
 
 # System

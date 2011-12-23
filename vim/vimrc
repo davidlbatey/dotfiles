@@ -1,11 +1,38 @@
 " General settings
 
+call pathogen#runtime_append_all_bundles()
+
 syntax enable			  " Highlight Syntax
+set nocp			  " Set not compatible with VI
+filetype plugin indent on         " Plugin indent on
 
 set softtabstop=2		  " 2 space tabs
+set shiftwidth=2		  " number of spaces to use for autoindenting
+set shiftround			  " use multiple of shiftwidth when indenting with '<' and '>'
 set showcmd			  " Display incomplete commands
 set showmode			  " Show the vim mode
 set number			  " Show line numbers
 set ruler			  " Show cursor position
+set title			  " Set tab title
+set showmatch			  " set show matching parenthesis
+
+set wildmenu			  " Enhanced command line completion
+set wildmode=list:longest	  " Complete files like a shell
+set ignorecase			  " Ignore case when searching
+set smartcase			  " But case-sensitive if expression includes capital
+
+set history=1000		  " Store 1000 lines of command history
+set undolevels=1000		  " Undo levels
 
 set backspace=indent,eol,start	  " Intuitive backspacing
+
+set colorcolumn=80		  " Set color on line 80
+
+set nobackup			  " Don't create backups
+set noswapfile			  " Don't create swap files
+
+" Disable keys
+map <up> <nop>			  
+map <down> <nop>		 
+map <left> <nop>
+map <right> <nop>

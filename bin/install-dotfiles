@@ -46,6 +46,7 @@ module DotfilesInstaller
 
   def install_vim_files
     FileUtils.symlink("#{ENV['HOME']}/dotfiles/vimrc", "#{ENV['HOME']}/.vimrc", {:force => true})
+    FileUtils.symlink("#{ENV['HOME']}/dotfiles/vim", "#{ENV['HOME']}/.vim", {:force => true})
     $stdout.puts "** VIM files installed"
   end
 

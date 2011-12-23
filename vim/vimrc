@@ -1,0 +1,7 @@
+" General settings
+
+syntax enable
+
+set softtabstop=2
+set showcmd
+set showmode

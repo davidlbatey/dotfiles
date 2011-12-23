@@ -19,6 +19,7 @@ module DotfilesInstaller
     install_bash_files
     install_ssh_files
     source_current_shell
+    install_vim_files
     $stdout.puts "-- Dotfiles installed. Woohoo --"
   end
 
@@ -41,6 +42,11 @@ module DotfilesInstaller
 
   def source_current_shell
     %x[source ~/.bashrc]
+  end
+
+  def install_vim_files
+    FileUtils.symlink("#{ENV['HOME']}/dotfiles/vimrc", "#{ENV['HOME']}/.vimrc", {:force => true})
+    $stdout.puts "** VIM files installed"
   end
 
 end

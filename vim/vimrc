@@ -1,7 +1,11 @@
 " General settings
 
-syntax enable
+syntax enable			  " Highlight Syntax
 
-set softtabstop=2
-set showcmd
-set showmode
+set softtabstop=2		  " 2 space tabs
+set showcmd			  " Display incomplete commands
+set showmode			  " Show the vim mode
+set number			  " Show line numbers
+set ruler			  " Show cursor position
+
+set backspace=indent,eol,start	  " Intuitive backspacing

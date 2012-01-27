@@ -19,6 +19,7 @@ alias pg='ps aux | grep'
 alias psa='ps aux '
 alias tc='top -o cpu'
 alias tm='top -o vsize'
+alias dot='cd ~/dotfiles'
 
 # GIT
 alias gs='git status'

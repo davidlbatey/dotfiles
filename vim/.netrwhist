@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/david/code/website/cuttings.me/app/views'
+let g:netrw_dirhist_2='/Users/david/code/website/cuttings.me/app/views/cuttings'
+let g:netrw_dirhist_3='/Users/david/code/website/eat_social/app/views/devise/registrations'
+let g:netrw_dirhist_4='/Users/david/shutl/developments/argos/app/models/delivery_windows'
+let g:netrw_dirhist_5='/Users/david/code/website/eat_social/app/views/devise/registrations'
+let g:netrw_dirhist_6='/Users/david/.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/bundler/gems/handlebars-rails-9a8b249d9fbf/lib/handlebars-rails'
+let g:netrw_dirhist_7='/Users/david/shutl/developments/argos/app/views/catalogue_uploads'

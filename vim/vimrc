@@ -37,6 +37,8 @@ set foldmethod=indent		  " Fold based on indent
 set foldnestmax=3		  " Deepest fold is 3 levels
 set nofoldenable		  " Don't fold by default
 
+vnoremap _y :TOhtml<CR>:sav! temp.html<CR>:bd<CR>:!open temp.html<CR><CR>:sleep 1<CR>:!rm temp.html<CR><CR> " Opens a html copy which you can email
+
 " Disable keys
 map <up> <nop>			  
 map <down> <nop>		 

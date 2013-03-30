@@ -42,10 +42,18 @@ set nofoldenable		  " Don't fold by default
 vnoremap _y :TOhtml<CR>:sav! temp.html<CR>:bd<CR>:!open temp.html<CR><CR>:sleep 1<CR>:!rm temp.html<CR><CR> " Opens a html copy which you can email
 
 " Disable keys
-map <up> <nop>			  
-map <down> <nop>		 
+map <up> <nop>
+map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+" Add new gitvim bindings
+
+nmap gs :Gstatus<cr>
+nmap gc :Gcommit<cr>
+nmap ga :Gwrite<cr>
+nmap gl :Glog<cr>
+nmap gd :Gdiff<cr>
 
 " Ruby autocomplete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete

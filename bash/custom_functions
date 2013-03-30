@@ -1,0 +1,5 @@
+cfe () {
+  coffee -bps
+}
+
+export -f cfe
